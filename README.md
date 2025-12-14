@@ -26,6 +26,7 @@ While using many gpu threads in order to do that we need to do the following thi
 - Finally, we call cudaMemcpy to copy host_z_values to device_z_values with the size of btyes_z_values and we are copying it from the host to the device with cudaMemcpyHostToDevice
 
 # Step 3 - Compute the activation values of the given set array
+<<<<<<< HEAD
 - After allocating GPU memory and copying input data, we launch the sigmoid activation kernel.
 - The kernel reads the input values ('z_matrix') from GPU memory and writes the computed activation values into 'activation_matrix'.
 - Kernal Arguments
@@ -33,3 +34,6 @@ While using many gpu threads in order to do that we need to do the following thi
     - **activation_matrix**: pointer to an array in GPU memory where the sigmoid results will be stored.
 - Each GPU thread processes one element:
 
+=======
+- 
+>>>>>>> 5c4f4676c745af66e7f4ce0e452abfc7dd2191a9
