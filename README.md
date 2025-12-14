@@ -1,4 +1,3 @@
-cat << 'EOF' > README.md
 # Neural Networks with CUDA
 
 This project implements neural network operations using custom CUDA kernels.  
@@ -31,5 +30,5 @@ While using many gpu threads in order to do that we need to do the following thi
 - Kernal Arguments
     - **z_matrix**: Pointer to an array of pre-activation values stored in GPU memory.
     - **activation_matrix**: pointer to an array in GPU memory where the sigmoid results will be stored.
-    
+
 - Each GPU thread processes one element:
