@@ -1,14 +1,13 @@
-# Cuda Malloc
+# cudaMalloc
+
+## Offical Documentation
+https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__MEMORY.html#group__CUDART__MEMORY_1g37d37965bfb4803b6d4e59ff26856356
 
 ## Overview
 - Allocates memory on the GPU (device memory) for use in CUDA kernals (A Cuda program that runs on the GPU is called a kernal)
 
-## Syntax / Signature
-
-''' cpp
-cudaError_t cudaMalloc(void** devPtr, size_t size);
-
-- cudaError_t -> The return type is an error code. You can check it to see if the allocation succeeded
+## Signature
+cudaMalloc(void** devPtr, size_t size);
 
 - void ** devPtr -> the first arguement is the address of a pointer.
     - Why? Because cudaMalloc needs to modify your pointer so it points to GPU memory
@@ -26,5 +25,3 @@ if (err != cudaSuccess){
     // handle error
 }
 cudaFree(d_array);
-
-

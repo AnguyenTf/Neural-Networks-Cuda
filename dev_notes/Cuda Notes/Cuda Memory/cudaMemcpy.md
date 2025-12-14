@@ -7,9 +7,12 @@ https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__MEMORY.html#group__
 - A function used to copy data between CPU(host) and GPU (device)
 - Copy features
     - CPU -> GPU: Send input data to the GPU
+        - cudaMemcpyHostToDevice
     - GPU -> CPU:Retrieve results back to the CPU
+        - cudaMemcpyDeviceToHost
     - GPU -> GPU:Copy data between GPU buffers 
-
+        - cudaMemcpyDeviceToDevice
+        
 ## Signature
 cudaMemcpy(void * dst, const void* src, cudaMemcpyKind kind);
 
