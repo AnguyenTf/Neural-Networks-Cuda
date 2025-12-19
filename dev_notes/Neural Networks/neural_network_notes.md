@@ -23,3 +23,14 @@
     - GPU computation can be hundreds of times faster because it runs thousands of threads in parallel.
     - Result:
         - Efficient forward and backward passes, allowing large-scale networks to train in a reasonable time.
+
+## Activation Layer 
+
+
+## Neural Network Layer
+- A group of Nuerons
+    1) Take the same input values
+    2) Compute their own weighted sums + ias
+    3) Apply an activation function
+    4) Produce output values together
+    - This is one layer

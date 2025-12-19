@@ -10,10 +10,43 @@
 #####                KERNELS                    #####
 ###################################################*/
 
-__global__ void sigmoidActivation(float *z_matrix, float *activation_matrix){
-    int index = threadIdx.x;
-    // Sigmoid Formula
-    activation_matrix[index] = 1.0 / (1.0 + exp(-z_matrix[index]));
+/*
+weight_matrix = A weight tells a neuron how important an input is
+    - Small weight: Input matters a little
+    - Negative weight: Input counts against the neuron
+
+biases = A bias is a number added to the neuron that controls how easily it turns on, before looking at the inputs
+    - Set the baseline, without a bias your neurons are too rigid
+
+x_inputs = The raw numbers you feed into the neuron
+
+z_values = The raw score a neuron computes before the activation function
+
+activation_values = The number a neuron outputs after it finishes it computation
+
+nr_output_neurons = 
+
+nr_input_neurons = How many neurons are in this layer
+
+Example: x_inputs = [1,2,3] | nr_output_neurons = 3 | nr_input_neurons = 4
+1) We have 4 neurons with a weight of 
+    - Neuron 0: [0.5, -1, 2]
+    - Neuron 1: [1, 0, -0.5]
+    - Neuron 2: [-1, 2, 1]
+    - Neuron 3: [0.2, 0.3, 0.4]
+2)
+
+
+
+*/
+
+__global__ void linear_layer_and_activation(float *weight_matrix, float *biases, float *x_inputs,
+                 float *z_values, float *activation_values,
+                 int nr_output_neurons, int nr_input_neurons){
+    
+
+    
+
 }
 
 /*##################################################
@@ -21,40 +54,8 @@ __global__ void sigmoidActivation(float *z_matrix, float *activation_matrix){
 ##################################################*/
 
 int main() {
-    const int arraySize = 5;
-
-    // Initializing arrays on the CPu
-    float host_z_values[arraySize] = {1., 2., 3., 4., 5. };
-    float host_activations[arraySize] = { 0 };
-
-    // Caclulating the number of bytes required to store the arrays.
-    const size_t bytes_z_values = arraySize * sizeof(float);
-    const size_t bytes_activations = arraySize * sizeof(float);
-
-    // Float pointers which will contain the address of the arrays on the GPU.
-    float *device_z_values, *device_activations;
-
-    // Allocate memory on the GPU
-    cudaMalloc(&device_z_values, bytes_z_values);
-    cudaMalloc(&device_activations, bytes_activations);
-
-    // Now that we have allocated memory space and the location is stored in our pointer we can transfer the values from the CPU to the GPU.
-    cudaMemcpy(device_z_values, host_z_values, bytes_z_values, cudaMemcpyHostToDevice);
     
-    // Call the kernel which calculates the activations
-    // <<< Numbers of blocks, Threads per block>>>
-    sigmoidActivation <<<1, arraySize >>> (device_z_values, device_activations);
-
-    // Copy the results back to the CPU
-    cudaMemcpy(host_activations, device_activations, bytes_z_values, cudaMemcpyDeviceToHost);
-
-    std::cout << "sigmoid({1, 2, 3, 4, 5}) = " 
-              << host_activations[0] << ", "
-              << host_activations[0] << ", "
-              << host_activations[0] << ", "
-              << host_activations[0] << ", "
-              << host_activations[0] << std::endl;
-    getchar();
+    std::cout << "Hellow bruh" << std::endl;
 
     return 0;
 }
